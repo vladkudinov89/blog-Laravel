@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'guest'] , function (){
+    Route::get('/register' , function (){
+        return view('auth.register');
+    });
+});
